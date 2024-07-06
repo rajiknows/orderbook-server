@@ -1,22 +1,22 @@
 
 
 
-pub fn add(a:usize,b:usize)->usize{
-    a+b
-}
+// pub fn add(a:usize,b:usize)->usize{
+//     a+b
+// }
 
-#[cfg(test)]
-mod test{
+// #[cfg(test)]
+// mod test{
 
-    use super::*;
+//     use super::*;
 
-    #[test]
-    fn itworks(){
-        let result = add(2,3);
-        assert_eq!( result,5);
-    } 
+//     #[test]
+//     fn itworks(){
+//         let result = add(2,3);
+//         assert_eq!( result,5);
+//     } 
 
 
 
     
-}
+// }
