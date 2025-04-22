@@ -1,9 +1,8 @@
 use crate::{orderbook::*, GLOBAL_TRADE_ID};
-use std::sync::{Arc, Mutex};
 use actix_web::web;
+use std::sync::{Arc, Mutex};
 
-use serde::{Serialize,Deserialize};
-
+use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize, PartialEq, PartialOrd, Debug, Clone)]
 pub enum Status {
@@ -13,9 +12,9 @@ pub enum Status {
 
 #[derive(Serialize, Deserialize, PartialEq, PartialOrd, Debug, Clone)]
 pub struct Fills {
-    price: usize,
-    quantity: usize,
-    tradeid: usize,
+    pub price: usize,
+    pub quantity: usize,
+    pub tradeid: usize,
 }
 
 #[derive(Serialize, Deserialize, PartialEq, PartialOrd, Debug, Clone)]
@@ -30,8 +29,8 @@ pub fn fill_order(
     price: usize,
     quantity: &mut usize,
     kind: Kind,
-    bookwithquantity:  web::Data<Arc<Mutex<BookWithQuantity>>>,
-    orderbook:  web::Data<Arc<Mutex<OrderBook>>>,
+    bookwithquantity: web::Data<Arc<Mutex<BookWithQuantity>>>,
+    orderbook: web::Data<Arc<Mutex<OrderBook>>>,
 ) -> Fillresult {
     let mut fills: Vec<Fills> = Vec::new();
 
